@@ -18,6 +18,11 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
+    CGRect barRect = CGRectMake(20, 20, 50, 30);
+    UILabel *gradeLabel = [[UILabel alloc] initWithFrame:barRect];
+    gradeLabel.text = @"89";
+    [self.view addSubview:gradeLabel]; // we’ll talk about self.view later
+    // (it is a Controller’s top-level view)
 }
 
 - (void)didReceiveMemoryWarning
