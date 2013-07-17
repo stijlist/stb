@@ -11,6 +11,7 @@
 @interface STBGrade : NSObject
 @property NSUInteger gradeEarned;
 @property NSUInteger gradeMax;
-@property NSDecimal weight;
+@property float weight;
 @property BOOL completed;
+@property NSDate *dateOfGrade;
 @end

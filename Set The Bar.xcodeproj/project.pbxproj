@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4C412DD61794763100E4F56A /* STBGradeCollectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C412DD51794763100E4F56A /* STBGradeCollectionTest.m */; };
+		4C4451CA1791EF1200A9876A /* STBGradeBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C870595178B0D410077B27B /* STBGradeBarView.m */; };
 		4C44D11717879E1600665BE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C44D11617879E1600665BE4 /* Foundation.framework */; };
 		4C44D11917879E1600665BE4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C44D11817879E1600665BE4 /* CoreGraphics.framework */; };
 		4C44D11B17879E1600665BE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C44D11A17879E1600665BE4 /* UIKit.framework */; };
@@ -36,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4C412DD51794763100E4F56A /* STBGradeCollectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STBGradeCollectionTest.m; path = "Set The BarTests/STBGradeCollectionTest.m"; sourceTree = SOURCE_ROOT; };
 		4C44D11317879E1600665BE4 /* Set The Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Set The Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C44D11617879E1600665BE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4C44D11817879E1600665BE4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -132,6 +135,7 @@
 				4CD97DF0178FE7370051D4B6 /* STBGradeCollection.h */,
 				4CD97DF1178FE7370051D4B6 /* STBGradeCollection.m */,
 				4CD97DED178FE6500051D4B6 /* STBGrade.h */,
+				4C412DD51794763100E4F56A /* STBGradeCollectionTest.m */,
 				4CD97DEE178FE6500051D4B6 /* STBGrade.m */,
 			);
 			path = "Set The Bar";
@@ -266,6 +270,7 @@
 			files = (
 				4CD97DF2178FE7370051D4B6 /* STBGradeCollection.m in Sources */,
 				4C44D12D17879E1600665BE4 /* STBViewController.m in Sources */,
+				4C4451CA1791EF1200A9876A /* STBGradeBarView.m in Sources */,
 				4CD97DEF178FE6500051D4B6 /* STBGrade.m in Sources */,
 				4C44D12717879E1600665BE4 /* STBAppDelegate.m in Sources */,
 				4C44D12317879E1600665BE4 /* main.m in Sources */,
@@ -277,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C44D14217879E1600665BE4 /* Set_The_BarTests.m in Sources */,
+				4C412DD61794763100E4F56A /* STBGradeCollectionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

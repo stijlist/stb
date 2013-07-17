@@ -7,9 +7,10 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "STBGrade.h"
 
 @interface STBGradeCollection : NSObject
-@property NSArray *grades;
-- (NSUInteger) calculateAverage;
+- (NSNumber *) calculateAverage;
 - (NSNumber *) calculatePercentCompleted;
+- (void) addGrade:(STBGrade *)gradeToAdd;
 @end

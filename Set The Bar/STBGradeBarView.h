@@ -9,5 +9,8 @@
 #import <UIKit/UIKit.h>
 
 @interface STBGradeBarView : UIView
-
+// - (void)drag:(UIPanGestureRecognizer *)gesture;
+- (void)drawGradeLabel:(NSString *)grade;
+@property CGFloat verticalScaleFactor;
+@property UILabel *gradeLabel;
 @end

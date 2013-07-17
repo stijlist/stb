@@ -7,9 +7,11 @@
 //
 
 #import "STBViewController.h"
+#import "STBGradeBarView.h"
+#import "STBGradeCollection.h"
 
 @interface STBViewController ()
-
+@property (nonatomic) STBGradeCollection *grades;
 @end
 
 @implementation STBViewController
@@ -17,14 +19,18 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    CGRect barRect = CGRectMake(20, 20, 50, 30);
-    UILabel *gradeLabel = [[UILabel alloc] initWithFrame:barRect];
-    gradeLabel.text = @"89";
-    [self.view addSubview:gradeLabel]; // we’ll talk about self.view later
-    // (it is a Controller’s top-level view)
+    // Just experimenting
+    [self.grades addGrade: [[STBGrade alloc] init]];
+    // I think what I may want here is a UICollectionView
+    
 }
-
+- (STBGradeCollection *)grades
+{
+    if (!_grades) {
+        _grades = [[STBGradeCollection alloc] init];
+    }
+    return _grades;
+}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
