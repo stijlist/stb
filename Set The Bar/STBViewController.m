@@ -12,6 +12,7 @@
 
 @interface STBViewController ()
 @property (nonatomic) STBGradeCollection *grades;
+@property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
 @end
 
 @implementation STBViewController
@@ -36,5 +37,9 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+- (IBAction)changeGrade:(UISlider *)sender {
+    self.gradeLabel.text = [[NSNumber numberWithFloat:(sender.value * 100)] stringValue];
+}
+
 
 @end
