@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4C412DD61794763100E4F56A /* STBGradeCollectionTest.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C412DD51794763100E4F56A /* STBGradeCollectionTest.m */; };
-		4C4451CA1791EF1200A9876A /* STBGradeBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C870595178B0D410077B27B /* STBGradeBarView.m */; };
 		4C44D11717879E1600665BE4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C44D11617879E1600665BE4 /* Foundation.framework */; };
 		4C44D11917879E1600665BE4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C44D11817879E1600665BE4 /* CoreGraphics.framework */; };
 		4C44D11B17879E1600665BE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C44D11A17879E1600665BE4 /* UIKit.framework */; };
@@ -23,8 +21,9 @@
 		4C44D13817879E1600665BE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C44D11A17879E1600665BE4 /* UIKit.framework */; };
 		4C44D14017879E1600665BE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C44D13E17879E1600665BE4 /* InfoPlist.strings */; };
 		4C44D14217879E1600665BE4 /* Set_The_BarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C44D14117879E1600665BE4 /* Set_The_BarTests.m */; };
-		4CA241D61950E30A00F753A2 /* STBGradeCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA241D51950E30A00F753A2 /* STBGradeCollection.m */; };
-		4CD97DEF178FE6500051D4B6 /* STBGrade.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD97DEE178FE6500051D4B6 /* STBGrade.m */; };
+		4CA241DC1950E69100F753A2 /* STBCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA241DB1950E69100F753A2 /* STBCollectionViewLayout.m */; };
+		4CA241E21950E6F300F753A2 /* STBGradeBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA241E11950E6F300F753A2 /* STBGradeBar.m */; };
+		4CA241E51950EB0200F753A2 /* STBGrade.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA241E41950EB0200F753A2 /* STBGrade.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +37,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		4C412DD51794763100E4F56A /* STBGradeCollectionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STBGradeCollectionTest.m; path = "Set The BarTests/STBGradeCollectionTest.m"; sourceTree = SOURCE_ROOT; };
 		4C44D11317879E1600665BE4 /* Set The Bar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Set The Bar.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C44D11617879E1600665BE4 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		4C44D11817879E1600665BE4 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,12 +56,12 @@
 		4C44D13D17879E1600665BE4 /* Set The BarTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Set The BarTests-Info.plist"; sourceTree = "<group>"; };
 		4C44D13F17879E1600665BE4 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		4C44D14117879E1600665BE4 /* Set_The_BarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Set_The_BarTests.m; sourceTree = "<group>"; };
-		4C870594178B0D410077B27B /* STBGradeBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STBGradeBarView.h; sourceTree = "<group>"; };
-		4C870595178B0D410077B27B /* STBGradeBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STBGradeBarView.m; sourceTree = "<group>"; };
-		4CA241D41950E30A00F753A2 /* STBGradeCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STBGradeCollection.h; path = Model/STBGradeCollection.h; sourceTree = "<group>"; };
-		4CA241D51950E30A00F753A2 /* STBGradeCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STBGradeCollection.m; path = Model/STBGradeCollection.m; sourceTree = "<group>"; };
-		4CD97DED178FE6500051D4B6 /* STBGrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STBGrade.h; path = Model/STBGrade.h; sourceTree = "<group>"; };
-		4CD97DEE178FE6500051D4B6 /* STBGrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STBGrade.m; path = Model/STBGrade.m; sourceTree = "<group>"; };
+		4CA241DA1950E69100F753A2 /* STBCollectionViewLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBCollectionViewLayout.h; sourceTree = "<group>"; };
+		4CA241DB1950E69100F753A2 /* STBCollectionViewLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBCollectionViewLayout.m; sourceTree = "<group>"; };
+		4CA241E01950E6F300F753A2 /* STBGradeBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBGradeBar.h; sourceTree = "<group>"; };
+		4CA241E11950E6F300F753A2 /* STBGradeBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBGradeBar.m; sourceTree = "<group>"; };
+		4CA241E31950EB0200F753A2 /* STBGrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBGrade.h; sourceTree = "<group>"; };
+		4CA241E41950EB0200F753A2 /* STBGrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBGrade.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,15 +126,14 @@
 				4C44D12817879E1600665BE4 /* Main.storyboard */,
 				4C44D12B17879E1600665BE4 /* STBViewController.h */,
 				4C44D12C17879E1600665BE4 /* STBViewController.m */,
-				4C870594178B0D410077B27B /* STBGradeBarView.h */,
-				4CA241D41950E30A00F753A2 /* STBGradeCollection.h */,
-				4CA241D51950E30A00F753A2 /* STBGradeCollection.m */,
-				4C870595178B0D410077B27B /* STBGradeBarView.m */,
+				4CA241E31950EB0200F753A2 /* STBGrade.h */,
+				4CA241E41950EB0200F753A2 /* STBGrade.m */,
+				4CA241DA1950E69100F753A2 /* STBCollectionViewLayout.h */,
+				4CA241DB1950E69100F753A2 /* STBCollectionViewLayout.m */,
+				4CA241E01950E6F300F753A2 /* STBGradeBar.h */,
+				4CA241E11950E6F300F753A2 /* STBGradeBar.m */,
 				4C44D12E17879E1600665BE4 /* Images.xcassets */,
 				4C44D11D17879E1600665BE4 /* Supporting Files */,
-				4CD97DED178FE6500051D4B6 /* STBGrade.h */,
-				4C412DD51794763100E4F56A /* STBGradeCollectionTest.m */,
-				4CD97DEE178FE6500051D4B6 /* STBGrade.m */,
 			);
 			path = "Set The Bar";
 			sourceTree = "<group>";
@@ -269,11 +266,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C44D12D17879E1600665BE4 /* STBViewController.m in Sources */,
-				4CA241D61950E30A00F753A2 /* STBGradeCollection.m in Sources */,
-				4C4451CA1791EF1200A9876A /* STBGradeBarView.m in Sources */,
-				4CD97DEF178FE6500051D4B6 /* STBGrade.m in Sources */,
+				4CA241E51950EB0200F753A2 /* STBGrade.m in Sources */,
 				4C44D12717879E1600665BE4 /* STBAppDelegate.m in Sources */,
 				4C44D12317879E1600665BE4 /* main.m in Sources */,
+				4CA241E21950E6F300F753A2 /* STBGradeBar.m in Sources */,
+				4CA241DC1950E69100F753A2 /* STBCollectionViewLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -282,7 +279,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C44D14217879E1600665BE4 /* Set_The_BarTests.m in Sources */,
-				4C412DD61794763100E4F56A /* STBGradeCollectionTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
