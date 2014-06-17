@@ -23,8 +23,8 @@
 		4C44D13817879E1600665BE4 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4C44D11A17879E1600665BE4 /* UIKit.framework */; };
 		4C44D14017879E1600665BE4 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4C44D13E17879E1600665BE4 /* InfoPlist.strings */; };
 		4C44D14217879E1600665BE4 /* Set_The_BarTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C44D14117879E1600665BE4 /* Set_The_BarTests.m */; };
+		4CA241D61950E30A00F753A2 /* STBGradeCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA241D51950E30A00F753A2 /* STBGradeCollection.m */; };
 		4CD97DEF178FE6500051D4B6 /* STBGrade.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD97DEE178FE6500051D4B6 /* STBGrade.m */; };
-		4CD97DF2178FE7370051D4B6 /* STBGradeCollection.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CD97DF1178FE7370051D4B6 /* STBGradeCollection.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,10 +60,10 @@
 		4C44D14117879E1600665BE4 /* Set_The_BarTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Set_The_BarTests.m; sourceTree = "<group>"; };
 		4C870594178B0D410077B27B /* STBGradeBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = STBGradeBarView.h; sourceTree = "<group>"; };
 		4C870595178B0D410077B27B /* STBGradeBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = STBGradeBarView.m; sourceTree = "<group>"; };
+		4CA241D41950E30A00F753A2 /* STBGradeCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STBGradeCollection.h; path = Model/STBGradeCollection.h; sourceTree = "<group>"; };
+		4CA241D51950E30A00F753A2 /* STBGradeCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STBGradeCollection.m; path = Model/STBGradeCollection.m; sourceTree = "<group>"; };
 		4CD97DED178FE6500051D4B6 /* STBGrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STBGrade.h; path = Model/STBGrade.h; sourceTree = "<group>"; };
 		4CD97DEE178FE6500051D4B6 /* STBGrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STBGrade.m; path = Model/STBGrade.m; sourceTree = "<group>"; };
-		4CD97DF0178FE7370051D4B6 /* STBGradeCollection.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = STBGradeCollection.h; path = Model/STBGradeCollection.h; sourceTree = "<group>"; };
-		4CD97DF1178FE7370051D4B6 /* STBGradeCollection.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = STBGradeCollection.m; path = Model/STBGradeCollection.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,11 +129,11 @@
 				4C44D12B17879E1600665BE4 /* STBViewController.h */,
 				4C44D12C17879E1600665BE4 /* STBViewController.m */,
 				4C870594178B0D410077B27B /* STBGradeBarView.h */,
+				4CA241D41950E30A00F753A2 /* STBGradeCollection.h */,
+				4CA241D51950E30A00F753A2 /* STBGradeCollection.m */,
 				4C870595178B0D410077B27B /* STBGradeBarView.m */,
 				4C44D12E17879E1600665BE4 /* Images.xcassets */,
 				4C44D11D17879E1600665BE4 /* Supporting Files */,
-				4CD97DF0178FE7370051D4B6 /* STBGradeCollection.h */,
-				4CD97DF1178FE7370051D4B6 /* STBGradeCollection.m */,
 				4CD97DED178FE6500051D4B6 /* STBGrade.h */,
 				4C412DD51794763100E4F56A /* STBGradeCollectionTest.m */,
 				4CD97DEE178FE6500051D4B6 /* STBGrade.m */,
@@ -268,8 +268,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4CD97DF2178FE7370051D4B6 /* STBGradeCollection.m in Sources */,
 				4C44D12D17879E1600665BE4 /* STBViewController.m in Sources */,
+				4CA241D61950E30A00F753A2 /* STBGradeCollection.m in Sources */,
 				4C4451CA1791EF1200A9876A /* STBGradeBarView.m in Sources */,
 				4CD97DEF178FE6500051D4B6 /* STBGrade.m in Sources */,
 				4C44D12717879E1600665BE4 /* STBAppDelegate.m in Sources */,
