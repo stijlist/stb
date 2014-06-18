@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface STBCollectionViewLayout : UICollectionViewLayout
-
+- (NSArray *)indexPathsOfItemsInRect:(CGRect)rect;
 @end

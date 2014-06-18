@@ -24,6 +24,7 @@
 		4CA241DC1950E69100F753A2 /* STBCollectionViewLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA241DB1950E69100F753A2 /* STBCollectionViewLayout.m */; };
 		4CA241E21950E6F300F753A2 /* STBGradeBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA241E11950E6F300F753A2 /* STBGradeBar.m */; };
 		4CA241E51950EB0200F753A2 /* STBGrade.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA241E41950EB0200F753A2 /* STBGrade.m */; };
+		4CA241E8195100FB00F753A2 /* STBDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 4CA241E7195100FB00F753A2 /* STBDataSource.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		4CA241E11950E6F300F753A2 /* STBGradeBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBGradeBar.m; sourceTree = "<group>"; };
 		4CA241E31950EB0200F753A2 /* STBGrade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBGrade.h; sourceTree = "<group>"; };
 		4CA241E41950EB0200F753A2 /* STBGrade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBGrade.m; sourceTree = "<group>"; };
+		4CA241E6195100FB00F753A2 /* STBDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = STBDataSource.h; sourceTree = "<group>"; };
+		4CA241E7195100FB00F753A2 /* STBDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = STBDataSource.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,10 +127,12 @@
 				4C44D12517879E1600665BE4 /* STBAppDelegate.h */,
 				4C44D12617879E1600665BE4 /* STBAppDelegate.m */,
 				4C44D12817879E1600665BE4 /* Main.storyboard */,
-				4C44D12B17879E1600665BE4 /* STBViewController.h */,
-				4C44D12C17879E1600665BE4 /* STBViewController.m */,
 				4CA241E31950EB0200F753A2 /* STBGrade.h */,
 				4CA241E41950EB0200F753A2 /* STBGrade.m */,
+				4C44D12B17879E1600665BE4 /* STBViewController.h */,
+				4C44D12C17879E1600665BE4 /* STBViewController.m */,
+				4CA241E6195100FB00F753A2 /* STBDataSource.h */,
+				4CA241E7195100FB00F753A2 /* STBDataSource.m */,
 				4CA241DA1950E69100F753A2 /* STBCollectionViewLayout.h */,
 				4CA241DB1950E69100F753A2 /* STBCollectionViewLayout.m */,
 				4CA241E01950E6F300F753A2 /* STBGradeBar.h */,
@@ -270,6 +275,7 @@
 				4C44D12717879E1600665BE4 /* STBAppDelegate.m in Sources */,
 				4C44D12317879E1600665BE4 /* main.m in Sources */,
 				4CA241E21950E6F300F753A2 /* STBGradeBar.m in Sources */,
+				4CA241E8195100FB00F753A2 /* STBDataSource.m in Sources */,
 				4CA241DC1950E69100F753A2 /* STBCollectionViewLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

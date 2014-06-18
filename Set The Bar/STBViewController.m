@@ -7,11 +7,9 @@
 //
 
 #import "STBViewController.h"
-#import "STBGrade.h"
-#import "STBGradeBar.h"
+#import "STBDataSource.h"
 
 @interface STBViewController ()
-@property NSMutableArray *grades;
 @end
 
 @implementation STBViewController
@@ -19,31 +17,29 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    if(_grades == nil) {
-        _grades = [[NSMutableArray alloc] init];
-    }
-    [self.grades addObject:[[STBGrade alloc] init]];
-    [self.grades addObject:[[STBGrade alloc] init]];
-    NSLog(@"Grades length: %lu", (unsigned long)[self.grades count]);
-    [self.gradeBarCollectionView setDataSource:self];
 }
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (NSInteger)collectionView:(UICollectionView*)collectionView numberOfItemsInSection:(NSInteger)section {
-
-    return [self.grades count];
+- (IBAction)handlePan:(UIPanGestureRecognizer *)sender {
+    
+    CGPoint initialPoint = [sender locationInView:self.collectionView];
+    CGPoint translation = [sender translationInView:self.collectionView];
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:initialPoint];
+    
+    STBDataSource *dataSource = self.collectionView.dataSource;
+    STBGrade *grade = [dataSource gradeAtIndexPath:indexPath];
+    CGFloat collectionViewHeight = self.collectionView.bounds.size.height;
+    CGFloat maxGradeHeight = [grade.weight floatValue] * collectionViewHeight;
+    CGFloat translationAsPercentageOfMaxHeight = translation.x / maxGradeHeight;
+    NSNumber *newPercentage = [NSNumber numberWithFloat:([grade.percentage floatValue] - translationAsPercentageOfMaxHeight)];
+    grade.percentage = newPercentage;
+    NSLog(@"New grade value: %@", grade);
+    [sender setTranslation:CGPointZero inView:self.collectionView];
+    [[self collectionView] reloadData];
 }
 
-
-- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    STBGrade *grade = [self.grades objectAtIndex:indexPath.row];
-    NSLog(@"Grade: %@", grade);
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GradeBar" forIndexPath:indexPath];
-    return cell;
-}
 
 @end

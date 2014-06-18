@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface STBViewController : UICollectionViewController<UICollectionViewDataSource>
-@property (strong, nonatomic) IBOutlet UICollectionView *gradeBarCollectionView;
+@interface STBViewController : UICollectionViewController
 
 @end
