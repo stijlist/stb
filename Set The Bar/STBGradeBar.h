@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface STBGradeBar : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *gradeLabel;
 
 @end

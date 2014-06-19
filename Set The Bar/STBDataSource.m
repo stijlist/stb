@@ -8,6 +8,7 @@
 
 #import "STBDataSource.h"
 #import "STBGrade.h"
+#import "STBGradeBar.h"
 
 @interface STBDataSource ()
 @property NSMutableArray *grades;
@@ -31,7 +32,13 @@
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GradeBar" forIndexPath:indexPath];
+    STBGradeBar *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GradeBar" forIndexPath:indexPath];
+    
+    cell.gradeLabel.text = [NSString stringWithFormat:@"%d", (NSInteger)roundf([[self gradeAtIndexPath:indexPath].percentage floatValue] * 100)];
+    NSLog(cell.gradeLabel.text);
+    NSLog(cell.debugDescription);
+
+    
     return cell;
 }
 
