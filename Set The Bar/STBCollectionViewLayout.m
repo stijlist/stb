@@ -15,8 +15,11 @@
 @end
 
 @implementation STBCollectionViewLayout
-- (CGSize)collectionViewContentSize
-{
+- (BOOL)shouldInvalidateLayoutForBoundsChange:(CGRect)newBounds {
+    return YES;
+}
+
+- (CGSize)collectionViewContentSize {
     // Don't scroll horizontally
     CGFloat contentWidth = self.collectionView.bounds.size.width;
     
@@ -60,6 +63,7 @@
     CGPoint cvorigin = self.collectionView.frame.origin;
     CGSize cvsize = self.collectionView.bounds.size;
     CGPoint desiredItemOrigin;
+    
     if(indexPath.row == 0) {
         desiredItemOrigin = CGPointMake(cvorigin.x, cvorigin.y + cvsize.height - attributes.size.height);
     } else {
@@ -70,7 +74,10 @@
     }
     
     attributes.frame = CGRectMake(desiredItemOrigin.x, desiredItemOrigin.y, attributes.size.width, attributes.size.height);
+    
+    // save current calculated layout attributes so that changes are visible to other cells
     [self.currentCalculatedLayoutAttributes replaceObjectAtIndex:indexPath.row withObject:attributes];
+    
     return attributes;
 }
 

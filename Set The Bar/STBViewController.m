@@ -27,6 +27,19 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"Selected!");
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    cell.layer.borderColor = UIColor.redColor.CGColor;
+}
+- (void)collectionView:(UICollectionView *)collectionView didDeselectItemAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"DeSelected!");
+    UICollectionViewCell *cell = [collectionView cellForItemAtIndexPath:indexPath];
+    cell.layer.borderColor = UIColor.whiteColor.CGColor;
+}
+
+
 - (IBAction)handlePan:(UIPanGestureRecognizer *)sender {
     
     CGPoint translation = [sender translationInView:self.collectionView];

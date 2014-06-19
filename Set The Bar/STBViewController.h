@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface STBViewController : UICollectionViewController
+@interface STBViewController : UICollectionViewController<UICollectionViewDelegate>
 
 @end
