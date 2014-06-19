@@ -34,27 +34,28 @@
     // give me the grade at the initialPoint
     CGPoint initialPoint = [sender locationInView:self.collectionView];
     NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:initialPoint];
-    STBDataSource *dataSource = self.collectionView.dataSource;
-    STBGrade *grade = [dataSource gradeAtIndexPath:indexPath];
-    //        ^^^ GRADE AT INITIAL POINT
-    
-    // calculate the scale relationship between grade percentage and collectionViewHeight
-    CGFloat collectionViewHeight = self.collectionView.bounds.size.height;
-    CGFloat scaleFactor = collectionViewHeight * [grade.weight floatValue];
-    
-    // scale the translation's y value by that scaleFactor to get ∆score
-    CGFloat deltaInScore = translation.y / scaleFactor;
-    CGFloat newGradeValue = ([grade.percentage floatValue] - deltaInScore);
-    
-    if (newGradeValue > 1.0) {
-        newGradeValue = 1.0;
-    } else if (newGradeValue < 0.0) {
-        newGradeValue = 0.0;
+    if(indexPath != nil) {
+        STBDataSource *dataSource = self.collectionView.dataSource;
+        STBGrade *grade = [dataSource gradeAtIndexPath:indexPath];
+        //        ^^^ GRADE AT INITIAL POINT
+        
+        // calculate the scale relationship between grade percentage and collectionViewHeight
+        CGFloat collectionViewHeight = self.collectionView.bounds.size.height;
+        CGFloat scaleFactor = collectionViewHeight * [grade.weight floatValue];
+        
+        // scale the translation's y value by that scaleFactor to get ∆score
+        CGFloat deltaInScore = translation.y / scaleFactor;
+        CGFloat newGradeValue = ([grade.percentage floatValue] - deltaInScore);
+        
+        if (newGradeValue > 1.0) {
+            newGradeValue = 1.0;
+        } else if (newGradeValue < 0.0) {
+            newGradeValue = 0.0;
+        }
+        grade.percentage = [NSNumber numberWithFloat:newGradeValue];
+        [sender setTranslation:CGPointZero inView:self.collectionView];
+        [[self collectionView] reloadData];
     }
-    grade.percentage = [NSNumber numberWithFloat:newGradeValue];
-    [sender setTranslation:CGPointZero inView:self.collectionView];
-    [[self collectionView] reloadData];
-    [[[self collectionView] collectionViewLayout] invalidateLayout];
 }
 
 
