@@ -17,6 +17,19 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+//    [self performSelectorInBackground:@selector(mutateFirstGrade) withObject:nil];
+}
+- (void)mutateFirstGrade {
+    // setup
+    STBDataSource *dataSource = self.collectionView.dataSource;
+    STBGrade *grade = [dataSource gradeAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
+    
+    // sleep
+    [NSThread sleepForTimeInterval:1.0f];
+
+    // set grade value, reload data
+    grade.percentage = @1.5;
+    [[self collectionView] reloadData];
 }
 - (void)didReceiveMemoryWarning
 {
@@ -25,19 +38,22 @@
 }
 - (IBAction)handlePan:(UIPanGestureRecognizer *)sender {
     
-    CGPoint initialPoint = [sender locationInView:self.collectionView];
     CGPoint translation = [sender translationInView:self.collectionView];
-    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:initialPoint];
     
+    // give me the grade at the initialPoint
+    CGPoint initialPoint = [sender locationInView:self.collectionView];
+    NSIndexPath *indexPath = [self.collectionView indexPathForItemAtPoint:initialPoint];
     STBDataSource *dataSource = self.collectionView.dataSource;
     STBGrade *grade = [dataSource gradeAtIndexPath:indexPath];
+    //        ^^^ GRADE AT INITIAL POINT
+    NSLog(@"Translation in pixels: %f", translation.x);
     CGFloat collectionViewHeight = self.collectionView.bounds.size.height;
-    CGFloat maxGradeHeight = [grade.weight floatValue] * collectionViewHeight;
-    CGFloat translationAsPercentageOfMaxHeight = translation.x / maxGradeHeight;
-    NSNumber *newPercentage = [NSNumber numberWithFloat:([grade.percentage floatValue] - translationAsPercentageOfMaxHeight)];
+    CGFloat scaleFactor = collectionViewHeight * [grade.weight floatValue];
+    
+    CGFloat deltaInScore = translation.x / scaleFactor;
+    NSNumber *newPercentage = [NSNumber numberWithFloat:([grade.percentage floatValue] + deltaInScore)];
     grade.percentage = newPercentage;
     NSLog(@"New grade value: %@", grade);
-    [sender setTranslation:CGPointZero inView:self.collectionView];
     [[self collectionView] reloadData];
 }
 

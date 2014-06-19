@@ -18,9 +18,7 @@
     if (self = [super init]) {
         _grades = [[NSMutableArray alloc] init];
         STBGrade *firstGrade = [[STBGrade alloc] init];
-        STBGrade *secondGrade = [[STBGrade alloc] init];
         [_grades addObject:firstGrade];
-        [_grades addObject:secondGrade];
         
     }
     return self;
@@ -46,11 +44,11 @@
 - (CGSize) sizeForGradeAtIndexPath:(NSIndexPath *)indexPath givenViewSize:(CGSize)viewSize
 {
     STBGrade *grade = self.grades[indexPath.row];
-    // TODO: WHAT THE F$%# THIS API IS SUPPOSED TO BE IN POINTS NOT PIXELS
-    // I SHOULD NOT HAVE TO MULTIPLY BY 2
-    CGFloat gradeHeight = 2 *([grade.percentage floatValue] * [grade.weight floatValue]) * viewSize.height;
-    NSLog(@"Grade width is %f and grade height is %f", viewSize.width, gradeHeight);
-    return CGSizeMake(2 * viewSize.width, gradeHeight);
+    CGFloat gradeHeight = ([grade.percentage floatValue] * [grade.weight floatValue]) * viewSize.height;
+//    NSLog(@"Grade width is %f and grade height is %f", viewSize.width, gradeHeight);
+    // TODO: wtf? this api is supposed to be in points, not pixels
+    // i should not have to multiply by 2
+    return CGSizeMake(2 * viewSize.width, 2 * gradeHeight);
 }
 
 - (NSArray *) allIndexPaths {
