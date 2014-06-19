@@ -10,6 +10,10 @@
 #import "STBViewController.h"
 #import "STBDataSource.h"
 
+@interface STBCollectionViewLayout ()
+@property NSMutableArray *currentCalculatedLayoutAttributes;
+@end
+
 @implementation STBCollectionViewLayout
 - (CGSize)collectionViewContentSize
 {
@@ -24,27 +28,47 @@
 }
 
 - (NSArray *)layoutAttributesForElementsInRect:(CGRect)rect {
-    NSMutableArray *layoutAttributes = [[NSMutableArray alloc] init];
-    NSArray *visibleIndexPaths = [self indexPathsOfItemsInRect:rect];
-    for (NSIndexPath *indexPath in visibleIndexPaths) {
-        UICollectionViewLayoutAttributes *attributes =
-        [self layoutAttributesForItemAtIndexPath:indexPath];
-        [layoutAttributes addObject:attributes];
+    // each element's layout attributes depend on the layoutAttributes for
+    // the item at the indexpath before it
+    // hopefully i'll come up with a more elegant method for this than just
+    // having a bag of local state to store these in
+    if(self.currentCalculatedLayoutAttributes == nil) {
+        _currentCalculatedLayoutAttributes = [[NSMutableArray alloc] init];
     }
     
+    NSMutableArray *layoutAttributes = [[NSMutableArray alloc] init];
+    NSArray *visibleIndexPaths = [self indexPathsOfItemsInRect:rect];
+    
+    for (NSIndexPath *indexPath in visibleIndexPaths) {
+        UICollectionViewLayoutAttributes *attributes = [self layoutAttributesForItemAtIndexPath:indexPath];
+        [layoutAttributes addObject:attributes];
+        [self.currentCalculatedLayoutAttributes addObject:attributes]; // store for future layoutAttributesForItemAtIndexPath calls
+        
+    }
     return [layoutAttributes copy];
 }
 
 - (UICollectionViewLayoutAttributes *) layoutAttributesForItemAtIndexPath:(NSIndexPath *)indexPath {
     UICollectionViewLayoutAttributes *attributes = [UICollectionViewLayoutAttributes layoutAttributesForCellWithIndexPath:indexPath];
     
-//    NSLog(@"CollectionView sizes:");
-//    NSLog(@"Frame size: height is %f and width is %f.", self.collectionView.frame.size.height, self.collectionView.frame.size.width);
-//    NSLog(@"Bounds size: height is %f and width is %f.", self.collectionView.bounds.size.height, self.collectionView.bounds.size.width);
     STBDataSource *dataSource = self.collectionView.dataSource;
     attributes.size = [dataSource sizeForGradeAtIndexPath:indexPath givenViewSize: self.collectionView.frame.size];
+    
+    // to set the origin properly, we need to check the state of the grade at the indexPaths lower than this one
+    // assumption: we'll lay out the items bottom to top in the same order as their indexPaths
     CGPoint cvorigin = self.collectionView.frame.origin;
-    attributes.frame = CGRectMake(cvorigin.x, cvorigin.y, attributes.size.width, attributes.size.height);
+    CGSize cvsize = self.collectionView.bounds.size;
+    CGPoint desiredItemOrigin;
+    if(indexPath.row == 0) {
+        desiredItemOrigin = CGPointMake(cvorigin.x, cvorigin.y + cvsize.height - attributes.size.height);
+    }
+//    else {
+//        NSIndexPath *indexPathOfItemBelow = [NSIndexPath indexPathWithIndex:indexPath.row - 1];
+//        UICollectionViewLayoutAttributes *layoutAttributesForItemBelow = [self.currentCalculatedLayoutAttributes objectAtIndex:indexPathOfItemBelow.row];
+//        CGPoint originOfItemBelow = layoutAttributesForItemBelow.frame.origin;
+//        desiredItemOrigin = CGPointMake(cvorigin.x, originOfItemBelow.y + attributes.size.height) ;
+//    }
+    attributes.frame = CGRectMake(desiredItemOrigin.x, desiredItemOrigin.y, attributes.size.width, attributes.size.height);
     return attributes;
 }
 

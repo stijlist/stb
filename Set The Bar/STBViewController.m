@@ -45,7 +45,7 @@
     
     // scale the translation's y value by that scaleFactor to get ∆score
     CGFloat deltaInScore = translation.y / scaleFactor;
-    CGFloat newGradeValue = ([grade.percentage floatValue] + deltaInScore);
+    CGFloat newGradeValue = ([grade.percentage floatValue] - deltaInScore);
     
     if (newGradeValue > 1.0) {
         newGradeValue = 1.0;
