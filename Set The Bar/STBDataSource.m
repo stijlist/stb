@@ -34,9 +34,9 @@
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     STBGradeBar *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GradeBar" forIndexPath:indexPath];
     
-    cell.gradeLabel.text = [NSString stringWithFormat:@"%d", (NSInteger)roundf([[self gradeAtIndexPath:indexPath].percentage floatValue] * 100)];
-    NSLog(cell.gradeLabel.text);
-    NSLog(cell.debugDescription);
+    cell.gradeLabel.text = [NSString stringWithFormat:@"%d", (NSInteger)round([[self gradeAtIndexPath:indexPath].percentage floatValue] * 100)];
+    cell.layer.borderColor = UIColor.blueColor.CGColor;
+    cell.layer.borderWidth = 1.0;
 
     
     return cell;
@@ -50,10 +50,7 @@
 {
     STBGrade *grade = self.grades[indexPath.row];
     CGFloat gradeHeight = ([grade.percentage floatValue] * [grade.weight floatValue]) * viewSize.height;
-//    NSLog(@"Grade width is %f and grade height is %f", viewSize.width, gradeHeight);
-    // TODO: wtf? this api is supposed to be in points, not pixels
-    // i should not have to multiply by 2
-    return CGSizeMake(2 * viewSize.width, 2 * gradeHeight);
+    return CGSizeMake(viewSize.width, gradeHeight);
 }
 
 - (NSArray *) allIndexPaths {

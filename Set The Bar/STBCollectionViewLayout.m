@@ -43,6 +43,8 @@
 //    NSLog(@"Bounds size: height is %f and width is %f.", self.collectionView.bounds.size.height, self.collectionView.bounds.size.width);
     STBDataSource *dataSource = self.collectionView.dataSource;
     attributes.size = [dataSource sizeForGradeAtIndexPath:indexPath givenViewSize: self.collectionView.frame.size];
+    CGPoint cvorigin = self.collectionView.frame.origin;
+    attributes.frame = CGRectMake(cvorigin.x, cvorigin.y, attributes.size.width, attributes.size.height);
     return attributes;
 }
 

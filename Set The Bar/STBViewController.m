@@ -17,6 +17,10 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.collectionView.layer.borderColor = UIColor.redColor.CGColor;
+    self.collectionView.layer.borderWidth = 1.0;
+    NSLog(self.collectionView.debugDescription);
+    
 }
 
 - (void)didReceiveMemoryWarning
