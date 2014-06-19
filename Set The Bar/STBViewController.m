@@ -17,20 +17,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-//    [self performSelectorInBackground:@selector(mutateFirstGrade) withObject:nil];
 }
-- (void)mutateFirstGrade {
-    // setup
-    STBDataSource *dataSource = self.collectionView.dataSource;
-    STBGrade *grade = [dataSource gradeAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:0]];
-    
-    // sleep
-    [NSThread sleepForTimeInterval:1.0f];
 
-    // set grade value, reload data
-    grade.percentage = @1.5;
-    [[self collectionView] reloadData];
-}
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -51,9 +39,16 @@
     CGFloat scaleFactor = collectionViewHeight * [grade.weight floatValue];
     
     CGFloat deltaInScore = translation.x / scaleFactor;
-    NSNumber *newPercentage = [NSNumber numberWithFloat:([grade.percentage floatValue] + deltaInScore)];
-    grade.percentage = newPercentage;
+    CGFloat newGradeValue = ([grade.percentage floatValue] - 5 * deltaInScore);
+    
+    if (newGradeValue > 1.0) {
+        newGradeValue = 1.0;
+    } else if (newGradeValue < 0.0) {
+        newGradeValue = 0.0;
+    }
+    grade.percentage = [NSNumber numberWithFloat:newGradeValue];
     NSLog(@"New grade value: %@", grade);
+//    [sender setTranslation:CGPointZero inView:self.collectionView];
     [[self collectionView] reloadData];
 }
 
