@@ -34,12 +34,14 @@
     STBDataSource *dataSource = self.collectionView.dataSource;
     STBGrade *grade = [dataSource gradeAtIndexPath:indexPath];
     //        ^^^ GRADE AT INITIAL POINT
-    NSLog(@"Translation in pixels: %f", translation.x);
+    
+    // calculate the scale relationship between grade percentage and collectionViewHeight
     CGFloat collectionViewHeight = self.collectionView.bounds.size.height;
     CGFloat scaleFactor = collectionViewHeight * [grade.weight floatValue];
     
-    CGFloat deltaInScore = translation.x / scaleFactor;
-    CGFloat newGradeValue = ([grade.percentage floatValue] - 5 * deltaInScore);
+    // scale the translation's y value by that scaleFactor to get ∆score
+    CGFloat deltaInScore = translation.y / scaleFactor;
+    CGFloat newGradeValue = ([grade.percentage floatValue] + deltaInScore);
     
     if (newGradeValue > 1.0) {
         newGradeValue = 1.0;
@@ -47,8 +49,7 @@
         newGradeValue = 0.0;
     }
     grade.percentage = [NSNumber numberWithFloat:newGradeValue];
-    NSLog(@"New grade value: %@", grade);
-//    [sender setTranslation:CGPointZero inView:self.collectionView];
+    [sender setTranslation:CGPointZero inView:self.collectionView];
     [[self collectionView] reloadData];
 }
 

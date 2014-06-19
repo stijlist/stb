@@ -31,8 +31,6 @@
 
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    STBGrade *grade = [self.grades objectAtIndex:indexPath.row];
-    NSLog(@"Grade: %@", grade);
     UICollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"GradeBar" forIndexPath:indexPath];
     return cell;
 }
