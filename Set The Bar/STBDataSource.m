@@ -20,6 +20,8 @@
         _grades = [[NSMutableArray alloc] init];
         STBGrade *firstGrade = [[STBGrade alloc] init];
         [_grades addObject:firstGrade];
+        STBGrade *secondGrade = [[STBGrade alloc] init];
+        [_grades addObject:secondGrade];
         
     }
     return self;

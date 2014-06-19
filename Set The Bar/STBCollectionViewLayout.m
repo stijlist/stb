@@ -61,13 +61,12 @@
     CGPoint desiredItemOrigin;
     if(indexPath.row == 0) {
         desiredItemOrigin = CGPointMake(cvorigin.x, cvorigin.y + cvsize.height - attributes.size.height);
+    } else {
+        NSIndexPath *indexPathOfItemBelow = [NSIndexPath indexPathForRow:(indexPath.row - 1) inSection:0];
+        UICollectionViewLayoutAttributes *layoutAttributesForItemBelow = [self.currentCalculatedLayoutAttributes objectAtIndex:indexPathOfItemBelow.row];
+        CGPoint originOfItemBelow = layoutAttributesForItemBelow.frame.origin;
+        desiredItemOrigin = CGPointMake(cvorigin.x, originOfItemBelow.y - attributes.size.height) ;
     }
-//    else {
-//        NSIndexPath *indexPathOfItemBelow = [NSIndexPath indexPathWithIndex:indexPath.row - 1];
-//        UICollectionViewLayoutAttributes *layoutAttributesForItemBelow = [self.currentCalculatedLayoutAttributes objectAtIndex:indexPathOfItemBelow.row];
-//        CGPoint originOfItemBelow = layoutAttributesForItemBelow.frame.origin;
-//        desiredItemOrigin = CGPointMake(cvorigin.x, originOfItemBelow.y + attributes.size.height) ;
-//    }
     attributes.frame = CGRectMake(desiredItemOrigin.x, desiredItemOrigin.y, attributes.size.width, attributes.size.height);
     return attributes;
 }
