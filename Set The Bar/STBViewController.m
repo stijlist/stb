@@ -19,7 +19,6 @@
     [super viewDidLoad];
     self.collectionView.layer.borderColor = UIColor.redColor.CGColor;
     self.collectionView.layer.borderWidth = 1.0;
-    NSLog(self.collectionView.debugDescription);
     
 }
 
@@ -55,6 +54,7 @@
     grade.percentage = [NSNumber numberWithFloat:newGradeValue];
     [sender setTranslation:CGPointZero inView:self.collectionView];
     [[self collectionView] reloadData];
+    [[[self collectionView] collectionViewLayout] invalidateLayout];
 }
 
 

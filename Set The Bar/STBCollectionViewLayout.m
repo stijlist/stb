@@ -34,6 +34,7 @@
     // having a bag of local state to store these in
     if(self.currentCalculatedLayoutAttributes == nil) {
         _currentCalculatedLayoutAttributes = [[NSMutableArray alloc] init];
+        [_currentCalculatedLayoutAttributes addObject:[[NSObject alloc] init]];
     }
     
     NSMutableArray *layoutAttributes = [[NSMutableArray alloc] init];
@@ -67,7 +68,9 @@
         CGPoint originOfItemBelow = layoutAttributesForItemBelow.frame.origin;
         desiredItemOrigin = CGPointMake(cvorigin.x, originOfItemBelow.y - attributes.size.height) ;
     }
+    
     attributes.frame = CGRectMake(desiredItemOrigin.x, desiredItemOrigin.y, attributes.size.width, attributes.size.height);
+    [self.currentCalculatedLayoutAttributes replaceObjectAtIndex:indexPath.row withObject:attributes];
     return attributes;
 }
 
